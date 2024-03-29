@@ -16,7 +16,7 @@
 
 
         <div>
-            <button class="btn btn-primary">
+            <button class="btn btn-dark">
                 @if ($category->exists)
                     Modifier
                 @else

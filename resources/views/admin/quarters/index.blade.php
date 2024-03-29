@@ -6,7 +6,7 @@
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
-        <a href="{{route('admin.quarter.create')}}" class="btn btn-primary">Ajouter un Quartier</a>
+        <a href="{{route('admin.quarter.create')}}" class="btn btn-dark">Ajouter un Quartier</a>
         
     </div>
 
@@ -26,7 +26,7 @@
                 <td>{{$quarter->area->name}}</td>
                 <td>
                     <div class="d-flex gap-2 w-100 justify-content-end">
-                        <a href="{{route('admin.quarter.edit', $quarter)}}" class="btn btn-warning">Editer</a>
+                        <a href="{{route('admin.quarter.edit', $quarter)}}" class="btn btn-light">Editer</a>
                         <form action="{{route('admin.quarter.destroy', $quarter)}}" method="post">
                             @csrf
                             @method('delete')

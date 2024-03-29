@@ -6,7 +6,7 @@
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
-        <a href="{{route('admin.area.create')}}" class="btn btn-primary">Ajouter une Commune</a>
+        <a href="{{route('admin.area.create')}}" class="btn btn-dark">Ajouter une Commune</a>
         
     </div>
 
@@ -24,7 +24,7 @@
                     <td> {{$area->name}} </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('admin.area.edit', $area)}}" class="btn btn-warning">Editer</a>
+                            <a href="{{route('admin.area.edit', $area)}}" class="btn btn-light">Editer</a>
                             <form action="{{route('admin.area.destroy', $area)}}" method="post">
                                 @csrf
                                 @method('delete')

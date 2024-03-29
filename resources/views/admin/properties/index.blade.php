@@ -29,7 +29,7 @@
                 </select>
                 {{-- <input type="text" name="user" placeholder="Propriétaire" class="form-control" value="{{ $input['user'] ?? ''}}"> --}}
                 <input type="number" name="price"  placeholder="Budget Max" class="form-control" value="{{ $input['price'] ?? ''}}">
-                <button class="btn btn-primary btn-sm flex-grow-0">
+                <button class="btn btn-dark btn-sm flex-grow-0">
                     Recherche
                 </button>
             </form>
@@ -72,17 +72,20 @@
                     </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="" class="btn btn-secondary">Voir</a>
-                            <a href="{{route('admin.property.edit', $property)}}" class="btn btn-light">Editer</a>
+                            @can('view', $property)
+                                <a href="" class="btn btn-secondary">Voir</a>                                
+                            @endcan
+                            @can('update', $property)
+                                <a href="{{route('admin.property.edit', $property)}}" class="btn btn-light">Editer</a>                                
+                            @endcan
                             {{-- @if ($property->delete_at) --}}
-                            {{-- @can('delete', $property) --}}
+                            @can('delete', $property)
                                 <form action="{{route('admin.property.destroy', $property)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">Supprimer</button>
-                                </form>
-                                
-                            {{-- @endcan --}}
+                                </form>                                
+                            @endcan
                                 
                             {{-- @else
                                 <p class="text-warning">

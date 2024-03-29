@@ -6,7 +6,7 @@
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
-        <a href="{{route('owner.property.create')}}" class="btn btn-primary">Ajouter un bien</a>
+        <a href="{{route('owner.property.create')}}" class="btn btn-dark">Ajouter un bien</a>
         
     </div>
 
@@ -42,8 +42,8 @@
                     </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" class="btn btn-secondary">Voir</a>
-                            <a href="{{route('owner.property.edit', $property)}}" class="btn btn-light">Editer</a>
+                            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" class="btn btn-light">Voir</a>
+                            <a href="{{route('owner.property.edit', $property)}}" class="btn btn-link">Editer</a>
                             {{-- @if ($property->delete_at) --}}
                             {{-- @can('delete', $property) --}}
                                 <form action="{{route('owner.property.destroy', $property)}}" method="post">

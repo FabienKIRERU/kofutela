@@ -28,9 +28,12 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark d-block w-100" style="position: fixed; top:0; z-index:999999; background-color: white; box-shadow:0 2px 5px rgb(230, 230, 230)">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand">Agency</a>
+            <a href="/" class="navbar-brand">                
+                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="90"  class="d-flex">
+                <span class=" fw-bold text-dark" style="font-size:15px; position: absolute; top:65px; left:15px">{{ config('app.name')}}</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggeler-icon"></span>
@@ -40,38 +43,49 @@
             @endphp
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="{{route('admin.area.index')}}" @class(['nav-link', 'active' => str_contains($route, 'area.')])>Gerer les Communes</a>
+                    <li class="nav-item" >
+                        <a href="{{route('admin.area.index')}}" @class(['nav-link', 'active' => str_contains($route, 'area.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Gerer les Communes
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.quarter.index')}}" @class(['nav-link', 'active' => str_contains($route, 'quarter.')])>Gerer les quarters</a>
+                        <a href="{{route('admin.quarter.index')}}" @class(['nav-link', 'active' => str_contains($route, 'quarter.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Gerer les quarters
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.category.index')}}" @class(['nav-link', 'active' => str_contains($route, 'category.')])>Les catégories</a>
+                        <a href="{{route('admin.category.index')}}" @class(['nav-link', 'active' => str_contains($route, 'category.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Les catégories
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.property.index')}}" @class(['nav-link', 'active' => str_contains($route, 'property.')])>Les property</a>
+                        <a href="{{route('admin.property.index')}}" @class(['nav-link', 'active' => str_contains($route, 'property.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Les property
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.owner.index')}}" @class(['nav-link', 'active' => str_contains($route, 'owner.')])>Les Bailleurs</a>
+                        <a href="{{route('admin.owner.index')}}" @class(['nav-link', 'active' => str_contains($route, 'owner.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Les Bailleurs
+                        </a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a href="{{route('admin.property.index')}}" @class(['nav-link', 'active' => str_contains($route, 'property.')])>Gerer les biens</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.option.index')}}" @class(['nav-link', 'active' => str_contains($route, 'option.')])>Gerer les options</a>
-                    </li> --}}
                 </ul>
                 <div class="ms-auto">
                     @auth
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <form action="{{route('logout')}}" method="post">
-                                @csrf
-                                <button class="nav-link">
-                                    Se Déconnecter
-                                </button>
-                            </form>
+                                <a href="{{route('profile.edit')}}">  
+                                    <span class="nav-link"  style="border: none; background-color:white; color:black">
+                                        {{auth()->user()->username ? auth()->user()->username : 'Profile'}}
+                                    </span>
+                                </a>
+                            </li> -
+                            <li class="nav-item">
+                                <form action="{{route('logout')}}" method="POST">
+                                    @csrf                                    
+                                    <button class="nav-link"  style="border: none; background-color:white; color:black">
+                                        Se Déconnecter
+                                    </button>
+                                </form>
                             </li>
                         </ul>
 
@@ -81,7 +95,8 @@
         </div>
     </nav>
     {{-- @include('shared.flash') --}}
-    <div class="container mt-5">
+    <div class="container"  style="z-index: -9999999; margin-top:100px">
+        @include('shared.flash')
         @yield('content')
     </div>
     <script>

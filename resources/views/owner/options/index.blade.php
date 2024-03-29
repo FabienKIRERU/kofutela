@@ -6,7 +6,7 @@
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
-        <a href="{{route('owner.option.create')}}" class="btn btn-primary">Ajouter une option</a>
+        <a href="{{route('owner.option.create')}}" class="btn btn-dark">Ajouter une option</a>
         
     </div>
 
@@ -24,7 +24,7 @@
                     <td> {{$option->name}} </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('owner.option.edit', $option)}}" class="btn btn-warning">Editer</a>
+                            <a href="{{route('owner.option.edit', $option)}}" class="btn btn-link">Editer</a>
                             <form action="{{route('owner.option.destroy', $option)}}" method="post">
                                 @csrf
                                 @method('delete')

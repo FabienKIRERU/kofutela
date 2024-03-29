@@ -29,7 +29,7 @@
             </div>
         </div>
         <div>
-            <button class="btn btn-primary">
+            <button class="btn btn-dark">
                 @if ($quarter->exists)
                     Modifier
                 @else

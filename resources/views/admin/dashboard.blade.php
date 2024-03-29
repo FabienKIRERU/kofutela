@@ -77,7 +77,7 @@
         
         <div class="container">
             <div class="container alert alert-light">
-                <h4>Ranking de Quartier</h4>
+                <h4>Ranking de Bailleur</h4>
                 <div>
                     <table class="table table-striped">
                         <thead>

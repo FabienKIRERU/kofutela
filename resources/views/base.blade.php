@@ -19,7 +19,10 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-ligth navbar-dark d-block w-100" style="position: fixed; top:0; z-index:999999; background-color: white; box-shadow:0 2px 5px rgb(230, 230, 230)">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand"   style="color: rgb(50, 21, 214); font-weight:600; font-size:25px">Agency</a>
+            <a href="/" class="navbar-brand "  >                
+                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="90"  class="d-flex">
+                <span class=" fw-bold text-dark" style="font-size:15px; position: absolute; top:65px; left:15px">{{ config('app.name')}}</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggeler-icon"></span>

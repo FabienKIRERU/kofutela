@@ -6,7 +6,7 @@
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
-        <a href="{{route('admin.category.create')}}" class="btn btn-primary">Ajouter unen category</a>
+        <a href="{{route('admin.category.create')}}" class="btn btn-dark">Ajouter unen category</a>
         
     </div>
 
@@ -24,7 +24,7 @@
                     <td> {{$category->titre}} </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('admin.category.edit', $category)}}" class="btn btn-warning">
+                            <a href="{{route('admin.category.edit', $category)}}" class="btn btn-light">
                                 Editer
                             </a>
                             <form action="{{route('admin.category.destroy', $category)}}" method="post">
