@@ -3,7 +3,8 @@
         <img src="{{ $property->getPicture()->getImageUrl(360, 230) }}" alt="" class="w-100">
         {{-- <img src="{{ Storage::url($property->pictures()->filename) }}" alt="" class="w-100">         --}}
     @else
-        <img src="{{ asset('/storage/ndako.jpg') }}" alt="PhotoNdako" class="w-100">
+    <small class="text-danger"> ce bien n'a pas de photo </small>
+    <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="230px"  class="d-flex">
     @endif
     <div class="card-body">
         <h5 class="card-title">

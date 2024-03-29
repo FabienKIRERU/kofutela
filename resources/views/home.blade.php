@@ -5,13 +5,14 @@
     {{-- <x-alert type='success'>
         des informations
     </x-alert> --}}
-    <div class="p-5 mb-5 text-center">
+    <div class="p-5 container text-center alert alert-info">
         <div class="container">
-            <h1>Agence</h1>
+            <h3>Kinshasa</h3>
+            <p>Besoin de Maisons, Bureaux, Depôt et bien d'autre ?</p>
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum quibusdam, culpa beatae aut 
-                temporibus exercitationem ratione dolor libero aperiam consectetur sapiente blanditiis illo eius 
-                impedit quaerat fuga quas cupiditate totam?
+                Publiez facilement et rapidement votre bien à louer et trouver rapidement la location idéale,
+                sans visites inutiles, pertes de temps ni commissions élévées. <br>
+                Simplifier votre Recherche et trouvez votre prochain lieu de vie ou de travail en un clin d'oeil !
             </p>
 
         </div>

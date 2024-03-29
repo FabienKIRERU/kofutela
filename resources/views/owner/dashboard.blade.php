@@ -13,11 +13,13 @@
                 <div class="">
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            @foreach ($property->pictures as $k => $picture)
+                            @forelse ($property->pictures as $k => $picture)
                                 <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
                                     <img src="{{$picture->getImageUrl(360, 230)}}" alt="">
                                 </div>
-                            @endforeach 
+                                @empty
+                                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="230px"  class="d-flex">
+                            @endforelse 
                         </div>
                       </div>
                     <div>

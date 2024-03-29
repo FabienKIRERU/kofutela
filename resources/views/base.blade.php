@@ -81,7 +81,7 @@
 
     {{-- </div> --}}
     
-    <div class="" style="bottom: 0%; height:75vh">
+    <div class="" style="bottom: 0%;">
         @include('footer')
     </div>
     

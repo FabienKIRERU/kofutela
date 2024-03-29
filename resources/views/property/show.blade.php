@@ -9,11 +9,13 @@
         <div class="col-8">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach ($property->pictures as $k => $picture)
+                    @forelse ($property->pictures as $k => $picture)
                         <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
                             <img src="{{$picture->getImageUrl(800, 530)}}" alt="">
                         </div>
-                    @endforeach                    
+                        @empty
+                        <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex">
+                    @endforelse                    
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>

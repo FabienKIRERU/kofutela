@@ -19,7 +19,7 @@
         </select>
         <input type="number" name="rooms" placeholder="Nombre pièce mimimum" class="form-control" value="{{ $input['rooms'] ?? ''}}">
         <input type="number" name="price"  placeholder="Budget Max" class="form-control" value="{{ $input['price'] ?? ''}}">
-        <button class="btn btn-primary btn-sm flex-grow-0">
+        <button class="btn btn-dark btn-sm flex-grow-0">
             Recherche
         </button>
     </form>
