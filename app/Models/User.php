@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Property;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -58,5 +59,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function properties():HasMany{
         return $this->hasMany(Property::class);
+    }
+    public function getSlug(): string{
+        return Str::slug($this->name.$this?->firstname.$this?->lastname);
     }
 }

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Owner;
 
 use App\Models\Area;
 use App\Models\Option;
+use App\Models\Picture;
 use App\Models\Quarter;
+use App\Models\Category;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Owner\PropertyFormRequest;
-use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Owner\PropertyFormRequest;
 
 class PropertyController extends Controller
 {
@@ -131,8 +132,8 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        // Picture::destroy($property->pictures()->pluck('id'));
-        $property->delete();
+        Picture::destroy($property->pictures()->pluck('id'));
+        // $property->delete();
         return to_route('owner.property.index')->with('success','Le bien a été supprimé');
     }
 }

@@ -9,12 +9,11 @@
         <div class="alert alert-light p-5 mb-5 text-center" style="border-radius: 30px">
             <form action="" method="get" class="container d-flex gap-2">
                 
-                <input type="text" name="username"  placeholder="Username" class="form-control" value="{{ $input['username'] ?? ''}}">
-                
-                <input type="text" name="name"  placeholder="Prenom" class="form-control" value="{{ $input['name'] ?? ''}}">
+                <input type="text" name="username"  placeholder="Username" class="form-control" value="{{ $input['username'] ?? ''}}">                
                 <input type="text" name="firstname"  placeholder="Nom" class="form-control" value="{{ $input['firstname'] ?? ''}}">
                 <input type="text" name="lastname"  placeholder="Postnom" class="form-control" value="{{ $input['lastname'] ?? ''}}">
-                <button class="btn btn-primary btn-sm flex-grow-0">
+                <input type="text" name="name"  placeholder="Prenom" class="form-control" value="{{ $input['name'] ?? ''}}">
+                <button class="btn btn-dark btn-sm flex-grow-0">
                     Recherche
                 </button>
             </form>
@@ -37,15 +36,15 @@
         </thead>
 
         <tbody>
-            @foreach ($properties as $property)
+            @foreach ($users as $user)
                 <tr>
                     <td class="fw-bold"> {{$user?->username}} </td>
-                    <td> {{$property->user?->firstname}} </td>
-                    <td> {{$property->user?->lastname}} </td>
-                    <td> {{$property->user?->name}} </td>
-                    <td> {{$property->user?->phone}} </td>
-                    <td> {{$property->user?->email}} </td>
-                    <td>
+                    <td> {{$user?->firstname}} </td>
+                    <td> {{$user?->lastname}} </td>
+                    <td> {{$user?->name}} </td>
+                    <td> {{$user?->phone}} </td>
+                    <td> {{$user?->email}} </td>
+                    {{-- <td>
                         @if ($user->quarter->area)
                         {{$user->quarter->area->name}}
                         @else
@@ -53,15 +52,15 @@
                             Ajouter Quartier
                         </a>
                         @endif
-                    </td>
+                    </td> --}}
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="" class="btn btn-secondary">Voir</a>
-                                <form action="{{route('admin.user.destroy', $user)}}" method="post">
+                            <a href="{{route('admin.owner.show', ['slug'=> $user->getSlug(), 'user' => $user])}}" class="btn btn-link">Voir</a>
+                                {{-- <form action="{{route('admin.owner.destroy', $user)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">Supprimer</button>
-                                </form>
+                                </form> --}}
                         </div>
                     </td>
                 </tr>

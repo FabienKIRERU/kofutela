@@ -13,7 +13,7 @@
 
     
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <title>@yield('title') | Agence</title>
+    <title>@yield('title') | PapaBailleur</title>
 
 </head>
 <body>

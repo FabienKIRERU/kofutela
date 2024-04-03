@@ -11,6 +11,9 @@ class HomeController extends Controller
         $properties = Property::available()->recent()->limit(4)->get();
         // $properties = Property::with('pictures')->available()->recent()->limit(4)->get();
 
-        return view('home', ['properties' => $properties]);
+        return view('home', 
+        [
+            'properties' => $properties,
+        ]);
     }
 }

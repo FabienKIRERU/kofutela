@@ -39,6 +39,9 @@
             <div class="container alert alert-info">
                 Moyenne des bien par Bailleur : <span class="" >{{$MoyenPropertyPerOwner}}</span>
             </div>
+            <div class="container alert alert-danger">
+                Abonné : <span class="" >{{$followersRanking}}</span>
+            </div>
         </div>
         <div class="container">
             <div class="container alert alert-light">

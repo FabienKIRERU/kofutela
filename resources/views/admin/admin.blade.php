@@ -45,12 +45,12 @@
                 <ul class="navbar-nav">
                     <li class="nav-item" >
                         <a href="{{route('admin.area.index')}}" @class(['nav-link', 'active' => str_contains($route, 'area.')]) style="color: black; font-weight:600; font-size:20hpx">
-                            Gerer les Communes
+                            Les Communes
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.quarter.index')}}" @class(['nav-link', 'active' => str_contains($route, 'quarter.')]) style="color: black; font-weight:600; font-size:20hpx">
-                            Gerer les quarters
+                            Les quarters
                         </a>
                     </li>
                     <li class="nav-item">
@@ -66,6 +66,11 @@
                     <li class="nav-item">
                         <a href="{{route('admin.owner.index')}}" @class(['nav-link', 'active' => str_contains($route, 'owner.')]) style="color: black; font-weight:600; font-size:20hpx">
                             Les Bailleurs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.follower.index')}}" @class(['nav-link', 'active' => str_contains($route, 'follower.')]) style="color: black; font-weight:600; font-size:20hpx">
+                            Les Abonnés
                         </a>
                     </li>
                 </ul>

@@ -1,4 +1,4 @@
-<div class="container d-flex text-secondary" style="bottom:0">
+<div class="container d-flex text-secondary" style="bottom:0; ">
     <div class="container">
         <img src="{{ asset('logo/papabailleur3.png') }}" alt="" width="150px"  class="d-flex">
         <div>

@@ -16,7 +16,7 @@ class OwnerController extends Controller
     
      public function index(SearchOwnerRequest $request){
 
-        $query = User::query()->orderBy('updated_at', 'desc');
+        $query = User::query()->where('role', 'owner')->orderBy('updated_at', 'desc');
         
         if ($request->validated('name')) {
             $query = $query->where('name', 'like', "%{$request->input('name')}%");
@@ -33,18 +33,34 @@ class OwnerController extends Controller
         }
         
         return view('admin.owner.index', [
-            'properties' => Property::with('user')->where('role', 'owner')->orderBy('updated_at', 'desc')->get(),
+            'users' => $query->paginate(25),
             // 'quarters' => Quarter::with('area')->get(),
             // 'areas' => Area::select('id', 'name')->with('quarters')->get(),
             // 'categories' => Category::select('id', 'titre')->get(),
-            // 'input' => $request->validated(),
+            'input' => $request->validated(),
         ]);
         
     }
-    public function showOwnerCount(){
-        // $ownerUsersCount = User::where('role', 'owner')->count();
-        return view('admin.dashboard', [
-            'ownerUsersCount' => User::where('role', 'owner')->count(),
-        ]);
+
+    
+    public function show(string $slug, User $user){
+
+        $expectedSlug = $user->getSlug();
+        if ($slug !== $expectedSlug) {
+            return to_route('property.show', [
+                'slug' => $expectedSlug,
+                'user' => $user,
+            ]);
+        }
+        return view('admin.owner.show', [
+            'user' => $user,
+            'properties' => Property::where('user_id', $user->id)->get(),
+        ]);        
+    }
+
+    public function destroy(string $slug, User $user){
+        $user->delete();
+        return view('admin.owner.index')
+        ->with('success', 'le propriétaire a été bien supprimé');
     }
 }

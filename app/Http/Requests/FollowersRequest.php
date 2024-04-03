@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SearchOwnerRequest extends FormRequest
+class FollowersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,11 @@ class SearchOwnerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['string', 'nullable'],
-            'name' => ['string', 'nullable'],
-            'firstname' => ['string', 'nullable'],
-            'lastname' => ['string', 'nullable'],
+            'email' => ['required', 'email', 'unique:followers,email'],
+            'phone' => ['required', 'min:10', 'unique:followers,phone'],
+            'nom' =>['nullable', 'string',],
+            'postnom' =>['nullable', 'string',],
+            'prenom' =>['nullable', 'string',],
         ];
     }
 }
