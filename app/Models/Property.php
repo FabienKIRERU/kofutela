@@ -8,6 +8,7 @@ use App\Models\Option;
 use App\Models\Picture;
 use App\Models\Quarter;
 use App\Models\Category;
+use App\Notifications\PropertyCreateNotification;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\Model;
@@ -81,5 +82,11 @@ class Property extends Model
     }
     public function scopeRecent(Builder $builder) : Builder{
         return $builder->orderBy('updated_at', 'desc');
+    }
+    public function notifyFollowers(){
+        $followers = Followers::get();
+        foreach ($followers as $follower) {
+            $follower->notify(new PropertyCreateNotification($this));
+        }
     }
 }

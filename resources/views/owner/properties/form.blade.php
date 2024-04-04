@@ -65,7 +65,7 @@
                     @include('shared.checkbox', ['label' => 'Occupé ?', 'class' => 'col', 'name' => 'sold', 'value' => $property->sold, ])
                 </div>
                 <div>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-dark">
                         @if ($property->exists)
                             Modifier
                         @else

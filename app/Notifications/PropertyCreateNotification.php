@@ -4,18 +4,18 @@ namespace App\Notifications;
 
 use App\Models\Property;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
-class ContactRequestNotification extends Notification
+class PropertyCreateNotification extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(private Property $property, private array $data)
+    public function __construct(private Property $property)
     {
         //
     }
@@ -35,10 +35,11 @@ class ContactRequestNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        $url = route('property.show', ['slug'=> $this->property->getSlug(), 'property' => $this->property]);
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Le bien '. $this->property->title .' a été créé.')
+                    ->action('Voir Le bien', $url)
+                    ->line('Merci D\'utiliser '.config('app.name').' !');
     }
 
     /**
