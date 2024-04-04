@@ -37,7 +37,7 @@
                 <div class="m-3">
                     <h1>{{$property->title}}</h1>
                     
-                    <div class="text-primary fw-bold" style="">
+                    <div class="text-danger fw-bold" style="">
                         Prix: {{ number_format( $property->price, thousands_separator: ' ' ) }} $ / mois
                     </div>
                     <hr>                
@@ -45,7 +45,7 @@
                         @include('shared.flash')
                         @auth                    
                             @if(auth()->user()->id == $property->user_id)
-                                <p class="text-primary fw-bold"> Vos Contact</p>
+                                <p class="text-danger fw-bold"> Vos Contact</p>
                                 <div class="">
                                     <p>email:  {{$property->user->email}}</p>
                                     <p>Téléphone: {{$property->user?->phone}}</p>

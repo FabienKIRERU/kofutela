@@ -47,7 +47,7 @@ Route::get('/biens/{slug}-{property}',[\App\Http\Controllers\PropertyController:
 Route::resource('follower', FollowersController::class)->except(['show', 'index']);
 
 // les routes pour l'admin
-Route::prefix('admin')->middleware(['admin', 'auth',])->name('admin.')->group(function () use($idRegex, $slugRegex)  {
+Route::prefix('admin')->middleware(['admin', 'auth','verified'])->name('admin.')->group(function () use($idRegex, $slugRegex)  {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     Route::get('owner', [AdminOwnerController::class, 'index'])->name('owner.index');
@@ -83,10 +83,6 @@ Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(fun
         'picture' => $idRegex,
     ]);
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -8,7 +8,7 @@
     @endif
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}">{{$property->title}}</a>
+            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" >{{$property->title}}</a>
 
         </h5>
         <p class="card-text">
@@ -19,7 +19,7 @@
             Q/ {{$property->quarter->name}} <br>
             {{$property->address}} -{{$property->city}}
         </p>
-        <div class="text-info fw-bold" style="font-size:1.4em">
+        <div class="text-danger fw-bold" style="font-size:1.4em">
             {{ number_format($property->price, thousands_separator: ' ') }} $
         </div>
     </div>
