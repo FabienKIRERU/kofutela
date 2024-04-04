@@ -59,8 +59,18 @@ class OwnerController extends Controller
     }
 
     public function destroy(string $slug, User $user){
-        $user->delete();
-        return view('admin.owner.index')
-        ->with('success', 'le propriétaire a été bien supprimé');
+        foreach ($user->properties as $property) {
+            if($property->pictures()->count() > 0){
+                return view('admin.owner.show', [
+                    'user' => $user,
+                    'properties' => Property::where('user_id', $user->id)->get(),
+                ]
+                )->with('success', 'vous devez supprimer au préalable tous les images du bien de ce bailleur');
+            }else {
+                $user->delete();
+                return view('admin.owner.index')
+                ->with('success', 'le propriétaire a été bien supprimé');                
+            };
+        }
     }
 }

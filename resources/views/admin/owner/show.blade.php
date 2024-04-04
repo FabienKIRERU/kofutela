@@ -2,6 +2,7 @@
 
 @section('title', $user->name)
 @section('content')
+@include('shared.flash')
 
 <div class="container mt-4 mb-4">
     <h3 class="m-4 w-100">
