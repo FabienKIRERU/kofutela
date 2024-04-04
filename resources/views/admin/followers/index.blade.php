@@ -32,7 +32,7 @@
                     <td> {{$follower->prenom ? $follower->prenom : "Pas definie"}} </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('admin.follower.edit', $follower)}}" class="btn btn-light">Editer</a>
+                            {{-- <a href="{{route('admin.follower.edit', $follower)}}" class="btn btn-light">Editer</a> --}}
                             <form action="{{route('admin.follower.destroy', $follower)}}" method="post">
                                 @csrf
                                 @method('delete')

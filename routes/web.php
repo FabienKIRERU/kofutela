@@ -48,9 +48,6 @@ Route::resource('follower', FollowersController::class)->except(['show', 'index'
 
 // les routes pour l'admin
 Route::prefix('admin')->middleware(['admin', 'auth',])->name('admin.')->group(function () use($idRegex, $slugRegex)  {
-    // Route::get('/', function () {
-    //     return view('admin.dashboard');
-    // })->name('dashboard');
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     Route::get('owner', [AdminOwnerController::class, 'index'])->name('owner.index');
@@ -61,13 +58,12 @@ Route::prefix('admin')->middleware(['admin', 'auth',])->name('admin.')->group(fu
     Route::delete('owner/{slug}-{user}', [AdminOwnerController::class, 'destroy'])->middleware(['verified'])->name('owner.destroy')->where([
         'property' => $idRegex,
         'slug' => $slugRegex,
-    ]);;
-    
+    ]);    
     Route::resource('area', AreaController::class)->middleware(['verified'])->except(['show']);
     Route::resource('quarter', QuarterController::class)->except(['show'])->middleware(['verified']);
     Route::resource('property', AdminPropertyController::class)->except(['create'])->middleware(['verified']);
     Route::resource('category', CategoryController::class)->except(['show'])->middleware(['verified']);
-    Route::resource('follower', AdminFollowersController::class)->except(['show']);
+    Route::resource('follower', AdminFollowersController::class)->except(['show', 'edite', 'update']);
     Route::delete('picture/{picture}', [AdminPictureController::class, 'destroy'])->name('picture.destroy')->where([
         'picture' => $idRegex,
     ])->middleware(['verified']);
