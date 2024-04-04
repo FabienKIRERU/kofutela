@@ -29,9 +29,12 @@
         </div>
         <div class="col-4">
             <h1>{{$property->title}}</h1>
-            <h4>{{$property->rooms}} - {{$property->surface}} m²</h4>
+            <h4>
+                Nombre Pièce: {{$property->rooms}} <br>
+                Surface: {{$property->surface}} m²
+            </h4>
             
-            <div class="text-primary fw-bold" style="font-size:4rem">
+            <div class="text-danger fw-bold" style="font-size:2rem">
                 {{ number_format( $property->price, thousands_separator: ' ' ) }} $
             </div>
             <hr>
@@ -42,12 +45,12 @@
                     @if(auth()->user()->id == $property->user_id)
                         <h1 class="text-primary"> Vos Contact</h1>
                         <div class="">
-                            <p>email:  {{$property->user->email}}</p>
-                            <p>Téléphone: {{$property->user?->phone}}</p>
+                            <p><i class="fa-solid fa-envelope w-30 text-danger"></i>:  {{$property->user->email}}</p>
+                            <p><i class="fa-solid fa-phone w-30 text-danger"></i>: {{$property->user?->phone}} </p>
                         </div>
                     @endif
                 @else                     
-                    <h3 class="text-primary">Interréssé(e) par ce bien ?</h3>
+                    <h3 class="text-danger">Interréssé(e) par ce bien ?</h3>
                     <form action="{{route('property.contact', $property)}}" method="post" class="vstack gap-3">
                         @csrf
                         <div class="row">
@@ -61,14 +64,15 @@
                         </div>
                         @include('shared.input', ['label' => 'Votre message', 'type' => 'textarea', 'class' => 'col', 'name' => 'message', ])
                         <div class="mt-2">
-                            <button class="btn btn-primary">
-                                Nous Contacter
+                            <button class="btn btn-dark">
+                                Envoyer Mail
                             </button>
                         </div>
-                        <div class="footer__social">
-                            <a href="{{$property?->telephone}}" class="footer__icon">Téléphone<i class='bx bxs-phone' ></i></i></a>
-                            <a href="whatsapp://send?Hello, Intéressé par le bien {{$property->title}}?&phone={{$property?->telephone}}" class="footer__icon">whatsapp<i class='bx bxl-whatsapp'></i></a>
-                            <a href="sms:{{$property?->telephone}}" class="footer__icon">SMS<i class='bx bxs-message'></i></a>
+                        <div class="m-3 p-2">
+                            <span class="alert alert-danger">Joignez-nous sur :</span> 
+                            <a href="{{$property?->telephone}}" class="m-2 "><i class="fa-solid fa-phone" style="font-size: 40px; color: rgb(66, 66, 66)"></i></a>
+                            <a href="whatsapp://send?Hello, Intéressé par le bien {{$property->title}}?&phone={{$property?->telephone}}" class="m-2 "><i class="fa-brands fa-square-whatsapp" style="font-size: 40px; color: rgb(7, 168, 7)" ></i></a>
+                            <a href="sms:{{$property?->telephone}}" class="m-2 "><i class="fa-solid fa-comment-sms" style="font-size: 40px"></i></a>
                         </div>
                     </form>
                     
