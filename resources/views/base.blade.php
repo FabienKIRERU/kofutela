@@ -8,16 +8,30 @@
     <link rel="stylesheet" href="{{asset('fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css')}}">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>@yield('title') | PapaBailleur</title>
-
+    <title>@yield('title') | {{ config('app.name')}}</title>
+<style>
+    body{
+        max-width: 100%;
+    }
+    nav{
+        max-width: 100%;
+    }
+    .article{
+        max-width: 100%;
+    }
+    .footer{
+        max-width: 100%;
+    }
+</style>
 </head>
-<body>
+<body class="bg">
     <nav class="navbar navbar-expand-lg bg-ligth navbar-dark d-block w-100" style="position: fixed; top:0; z-index:999999; background-color: white; box-shadow:0 2px 5px rgb(230, 230, 230)">
         <div class="container-fluid">
             <a href="/" class="navbar-brand "  >                
                 <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="90"  class="d-flex">
                 <span class=" fw-bold text-dark" style="font-size:15px; position: absolute; top:65px; left:15px">
-                    {{ config('app.name')}}</span>
+                    {{ config('app.name')}}
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
@@ -61,23 +75,23 @@
                         Se Connecter  |
                     </a>    
                     <a href="{{route('owner')}}" style="color: black; text-decoration:none; font-weight:600; font-size:15px">
-                        Devenez Propriétaire
+                        s'incrire
                     </a>                    
                     @endauth
                 </div>
             </div>
         </div>
     </nav>
-    <div class="bg bg-light" style="z-index: -9999999; margin-top:100px">
+    <div class="article" style="z-index: -9999999; margin-top:100px;">
         @include('shared.flash')
     
-            @yield('content')
+        @yield('content')
 
     </div>
 
     {{-- </div> --}}
     
-    <div class="" style="bottom: 0%;">
+    <div class="bg bg-dark footer" style="bottom: 0%;">
         @include('footer')
     </div>
     

@@ -2,10 +2,45 @@
 
 @section('title', 'Tous nos biens')
 @section('content')
+<style>    
+    .liste_property{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .properties{
+        width: 25%;
+        float: left;
+    }
+    .form_filter{
+        
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
     
+    @media screen and (max-width: 687px){
+        .liste_property{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            /* background: red; */
+        }
+        .properties{
+            width: 100%;
+            float: left;
+        }
+        .form_filter{            
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            /* margin-top: 50px; */
+        }
+
+    }
+</style>
 
 <div class="bg-light p-5 mb-5 text-center">
-    <form action="" method="get" class="container d-flex gap-2">
+    <form action="" method="get" class="container d-flex gap-1 form_filter">
         
         <input type="text" name="title"  placeholder="Mot Clé" class="form-control" value="{{ $input['title'] ?? ''}}">        
         
@@ -27,9 +62,9 @@
     
 <div class="container">
     <h1>Tous Nos Biens</h1>
-    <div class="row">
+    <div class="liste_property ">
         @forelse ($properties as $property)
-            <div class="col-3 mb-4">
+            <div class="properties">
                 @include('property.card')
             </div>
         @empty

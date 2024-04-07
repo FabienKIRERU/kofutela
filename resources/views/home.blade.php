@@ -1,11 +1,40 @@
 @extends('base')
 
 @section('content')
+<style>
+    .property{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .message{
+            display: flex;
+        }
+    @media screen and (max-width: 687px){
+        .section{
+            display: inline-block;
+            max-width: 100%;
+        }
+        .section .welcome{
+            max-width: 100%;
+        }
+        .section .mon_contenu{
+            max-width: 100%;
+        }
+        .property{
+            display: flex;
+            flex-direction: column;
+        }
+        .message{
+            display: block;
+            max-width: 95%;
+            padding: 20px;
+        }
 
-    {{-- <x-alert type='success'>
-        des informations
-    </x-alert> --}}
-    <div class="p-5 container text-center alert alert-info bg-transparent bg-opacity-90">
+    }
+</style>
+<div class="container section">
+    <div class="welcome p-5 container text-center alert alert-info bg-transparent bg-opacity-90">
         <div class="container">
             <h3>Bien venu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de Kinshasa</h3>
             <h4>Nous connéctons le locataire au Bailleur rapidement et éfficacement</h4>
@@ -15,19 +44,13 @@
                    Abonnez-vous
                 </a>
             </p>
-            {{-- <p>Besoin de Maisons, Bureaux, Depôt et bien d'autre ?</p> --}}
-            {{-- <p>
-                Publiez facilement et rapidement votre bien à louer et trouver rapidement la location idéale,
-                sans visites inutiles, pertes de temps ni commissions élévées. <br>
-                Simplifier votre Recherche et trouvez votre prochain lieu de vie ou de travail en un clin d'oeil !
-            </p> --}}
 
         </div>
     </div>
 
-    <div class="container bg bg-light p-3">
+    <div class="container bg bg-light p-3 mon_contenu">
         <h3>Nos 4 derniers Biens mis à jour</h3>
-        <div class="row">
+        <div class="property">
             @forelse ($properties as $property)
                 <div class="col">
                     @include('property.card')
@@ -37,15 +60,16 @@
             @endforelse
         </div>
     </div>
-    <div class="d-flex bg bg-light container">
-        <div class="m-3 w-100 container p-4"  style="background-color: white; margin-top:10px">
+    <div class="bg bg-light container message">
+        <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
             <h4 class="text-danger">Devenez Propriétaire</h4>
+            Vous êtes Bailleur, commisionnaire ou une Agence Imobilière ? <br>
             Publiez facilement et rapidement votre bien à louer
             <div class="w-100 text-center">
-                <a href="" class="btn btn-dark text-danger">s'inscrire</a>
+                <a href="" class="btn btn-dark text-danger">inscrivez-vous</a>
             </div>
         </div>
-        <div class="m-3 w-100 container p-4"  style="background-color: white; margin-top:10px">
+        <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
             <h4 class="text-danger">Trouvez votre demeure</h4>
             Trouver rapidement la location idéale,
             sans visites inutiles, pertes de temps ni commissions élévées. <br>
@@ -55,4 +79,6 @@
             </div>
         </div>
     </div>
+
+</div>
 @endsection

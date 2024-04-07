@@ -2,11 +2,94 @@
 
 @section('title', $property->title)
 @section('content')
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .presentation{
+        /* row */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .presentation .image{
+        width: 66.67%;
+        float: left;
+    }
+    .presentation .titre{
+        width: 33.33%;
+        float: left;
+    }
+    .presentation{
+        /* row */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .description{
+        /* row */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .description .caracteristique{
+        width: 66.67%;
+        float: left;
+    }
+    .description .option{
+        width: 33.33%;
+        float: left;
+    }
+    @media screen and (max-width: 687px){
+        
+        .presentation{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .presentation .image{
+            width: 100%;
+        }
+        .presentation .titre{
+            width: 100%;
+            /* float: left; */
+        }
+        .description .caracteristique{
+            width: 100%;
+            /* float: left; */
+        }
+        .description .option{
+            width: 100%;
+            /* float: left; */
+        }
+        /* .text_description{
+            display: inline;
+            max-width: 100%;
+        } */
+        .titre_title{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background: rgb(243, 243, 243);
+            overflow: scroll;
+        }
+        .textc{
+            flex-wrap: wrap;
+            width: 100%;
+            background: rgb(243, 243, 243);
+            overflow: scroll;
 
+            /* display: inline-block; */
+        }
+        .textp{
+            max-width: 100%;
+            
+        }
+
+    }
+</style>
 <div class="container mt-4 mb-4">
-
-    <div class="row">
-        <div class="col-8">
+    <div class="container presentation">
+        <div class="image">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @forelse ($property->pictures as $k => $picture)
@@ -27,8 +110,13 @@
                 </button>
             </div>
         </div>
-        <div class="col-4">
-            <h1>{{$property->title}}</h1>
+        <div class="titre">
+            <span class="badge bg-danger">
+                {{$property->category?->titre }}
+            </span>
+            <div class="titre_title">
+                <h1>{{$property->title}}</h1>
+            </div>
             <h4>
                 Nombre Pièce: {{$property->rooms}} <br>
                 Surface: {{$property->surface}} m²
@@ -43,7 +131,7 @@
                 @include('shared.flash')
                 @auth                    
                     @if(auth()->user()->id == $property->user_id)
-                        <h1 class="text-primary"> Vos Contact</h1>
+                        <h1 class="text-secondary"> Vos Contact</h1>
                         <div class="">
                             <p><i class="fa-solid fa-envelope w-30 text-danger"></i>:  {{$property->user->email}}</p>
                             <p><i class="fa-solid fa-phone w-30 text-danger"></i>: {{$property->user?->phone}} </p>
@@ -68,11 +156,11 @@
                                 Envoyer Mail
                             </button>
                         </div>
-                        <div class="m-3 p-2">
-                            <span class="alert alert-danger">Joignez-nous sur :</span> 
-                            <a href="{{$property?->telephone}}" class="m-2 "><i class="fa-solid fa-phone" style="font-size: 40px; color: rgb(66, 66, 66)"></i></a>
+                        <div class="">
+                            <span class="badge bg-danger">Joignez-nous sur :</span> 
+                            <a href="{{$property?->telephone}}" class=" "><i class="fa-solid fa-phone" style="font-size: 40px; color: rgb(66, 66, 66)"></i></a>
                             <a href="whatsapp://send?Hello, Intéressé par le bien {{$property->title}}?&phone={{$property?->telephone}}" class="m-2 "><i class="fa-brands fa-square-whatsapp" style="font-size: 40px; color: rgb(7, 168, 7)" ></i></a>
-                            <a href="sms:{{$property?->telephone}}" class="m-2 "><i class="fa-solid fa-comment-sms" style="font-size: 40px"></i></a>
+                            <a href="sms:{{$property?->telephone}}" class=""><i class="fa-solid fa-comment-sms" style="font-size: 40px"></i></a>
                         </div>
                     </form>
                     
@@ -85,12 +173,15 @@
     
     <div class="container">
         <div class="mt-4">
-            <p>
-                {!! nl2br($property->description) !!}
-            </p>
-            <div class="row">
-                <div class="col-8">
-                    <h2>Caractéristique</h2> 
+            <div class="containe textc ">
+                <p class="text-danger">
+                    Description
+                </p>
+                    {!! nl2br($property->description) !!}
+            </div>
+            <div class="description">
+                <div class="caracteristique">
+                    <h2 class="text-danger">Caractéristique</h2> 
                     <table class="table table-striped">
                         <tr>
                             <td>Surface Habitable</td>
@@ -117,8 +208,8 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-4">
-                    <h3>spécificité</h3>
+                <div class="option">
+                    <h3 class="text-danger">Spécificité</h3>
                     <ul class="list-group">
                         @forelse ($property->options as $option)
                             <li class="list-group-item">{{ $option->name }}</li>
