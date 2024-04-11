@@ -4,6 +4,9 @@
 @section('content')
 
     <h1>@yield('title')</h1>
+    <p class="text-danger container text-center">
+        Dites ce que vos Locaux ont.
+    </p>
 
     <form class="vstack gap-2" action="{{ route($option->exists ? 'owner.option.update' : 'owner.option.store', $option) }}" method="POST">
         @csrf

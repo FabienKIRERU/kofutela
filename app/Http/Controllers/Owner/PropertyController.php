@@ -72,6 +72,7 @@ class PropertyController extends Controller
             $property->bedrooms = $request['bedrooms'];
             $property->floor = $request['floor'];
             $property->price = $request['price'];
+            $property->garanteed = $request['garanteed'];
             $property->address = $request['address'];
             $property->sold = $request['sold'];
             
@@ -118,6 +119,7 @@ class PropertyController extends Controller
         $property->bedrooms = $request['bedrooms'];
         $property->floor = $request['floor'];
         $property->price = $request['price'];
+        $property->garanteed = $request['garanteed'];
         $property->address = $request['address'];
         $property->sold = $request['sold'];
         $property->save();

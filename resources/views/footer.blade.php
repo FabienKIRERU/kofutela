@@ -1,5 +1,3 @@
-
-
 <style>    
     .contentFooter{
             display: flex;
@@ -21,12 +19,12 @@
         <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="100px" class="d-flex m-2" style="border-radius: 50%">
         <div>
             <p>
-                Papa Bailleure est une plateforme pour la ville de Kinshasa qui vous facilite à avoir facilement votre demeure.
-                Elle permet aux bailleur de publier leur appartement, pour le bureau, logement, des depôt et bien 
-                d'autre. <br>
+                Papa Bailleure est une plateforme pour la ville de Kinshasa qui vous facilite à avoir facilement 
+                votre demeure. Elle permet aux Propriétaires de publier leurs locaux: appartement, bureau, 
+                logement, des depôt et bien d'autre. <br>
                 Elle permet aux Kinois de trouver facilement un un clic des appartement disponible,
                 sans perdre en temps, en argent, ... <br>
-                trouver ou vous voulait vivre, est notre devoire
+                Trouver ou vous voulait vivre, est notre devoire
             </p>
         </div>
 

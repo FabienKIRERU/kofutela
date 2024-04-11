@@ -1,11 +1,15 @@
 @extends('base')
 
-@section('title', "S'inscrire'")
+@section('title', "S'inscrire")
 @section('content')
 
     <div class="container mt-4">
         <div class="container mb-2">
             <h1>@yield('title')</h1>
+            <p class="text-danger">
+                Vous êtes bailleur ou commisionnaire, ou une agence immobilière ? <br>
+                Inscrivez-vous.
+            </p>
             @include('shared.flash')
     
             <form action="{{route('beOwner')}}" method="post" class="vstack gap-3">

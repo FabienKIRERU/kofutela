@@ -30,6 +30,7 @@ class Property extends Model
         'rooms',
         'bedrooms',
         'floor',
+        'garanteed',
         'price',
         'address',
         'sold',

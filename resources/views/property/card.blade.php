@@ -19,8 +19,9 @@
             Q/ {{$property->quarter->name}} <br>
             {{$property->address}} -{{$property->city}}
         </p>
-        <div class="text-danger fw-bold" style="font-size:1.4em">
-            {{ number_format($property->price, thousands_separator: ' ') }} $
+        <div class="text-danger fw-bold" style="font-size:1em">
+            Prix mensuel: {{ number_format($property->price, thousands_separator: ' ') }} $
+            Garantie: {{ number_format($property?->garanteed, thousands_separator: ' ') }} $
         </div>
     </div>
 </div>

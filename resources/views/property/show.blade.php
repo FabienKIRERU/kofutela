@@ -13,7 +13,7 @@
         display: flex;
         flex-wrap: wrap;
     }
-    .presentation .image{
+    .presentation .imagedesktop{
         width: 66.67%;
         float: left;
     }
@@ -39,78 +39,116 @@
         width: 33.33%;
         float: left;
     }
+    .imagelaptop{
+        display: none;
+    }
     @media screen and (max-width: 687px){
         
         .presentation{
             display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            /* display: inline-block;
             flex-direction: column;
-            width: 100%;
+            max-width: 100%; */
         }
-        .presentation .image{
-            width: 100%;
+        .presentation .imagelaptop{
+            display: block;     
+            /* display: flex;
+            flex-wrap: wrap;
+            max-width: 100%; */
+        }
+        .presentation .imagedesktop{            
+            display: none;
         }
         .presentation .titre{
             width: 100%;
-            /* float: left; */
+        }
+        .description{
+            /* display: inline-block; */
+            display: flex;
+            flex-wrap: wrap;
+            min-width: 100%;
         }
         .description .caracteristique{
+            display: block;
             width: 100%;
-            /* float: left; */
         }
         .description .option{
+            display: block;
             width: 100%;
-            /* float: left; */
         }
-        /* .text_description{
-            display: inline;
-            max-width: 100%;
-        } */
         .titre_title{
             display: flex;
             flex-wrap: wrap;
-            width: 100%;
+            /* width: 100%; */
             background: rgb(243, 243, 243);
             overflow: scroll;
         }
         .textc{
             flex-wrap: wrap;
-            width: 100%;
+            /* width: 100%; */
             background: rgb(243, 243, 243);
             overflow: scroll;
-
-            /* display: inline-block; */
         }
         .textp{
+            /* width: 100%; */
+        }
+        .forDesktop{
+            display: none;
+        }
+        .body{
+            margin: 0;
             max-width: 100%;
-            
         }
 
     }
 </style>
-<div class="container mt-4 mb-4">
+<div class="container mt-4 mb-4 body">
     <div class="container presentation">
-        <div class="image">
-            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @forelse ($property->pictures as $k => $picture)
-                        <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
-                            <img src="{{$picture->getImageUrl(800, 530)}}" alt="">
-                        </div>
-                        @empty
-                        <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex">
-                    @endforelse                    
+            <div class="container imagedesktop">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                            @forelse ($property->pictures as $k => $picture)
+                                <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
+                                    <img src="{{$picture->getImageUrl(800, 530)}}" alt="">
+                                </div>
+                                @empty
+                                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex">
+                            @endforelse
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
             </div>
-        </div>
-        <div class="titre">
+            <div class="container imagelaptop">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                            @forelse ($property->pictures as $k => $picture)
+                                <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
+                                    <img src="{{$picture->getImageUrl(350, 220)}}" alt="">
+                                </div>
+                                @empty
+                                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex">
+                            @endforelse
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        <div class="titre container">
             <span class="badge bg-danger">
                 {{$property->category?->titre }}
             </span>
@@ -122,8 +160,9 @@
                 Surface: {{$property->surface}} m²
             </h4>
             
-            <div class="text-danger fw-bold" style="font-size:2rem">
-                {{ number_format( $property->price, thousands_separator: ' ' ) }} $
+            <div class="text-danger fw-bold" style="font-size:1rem">
+                Prix Mensuel: {{ number_format( $property->price, thousands_separator: ' ' ) }} $ <br>
+                Garantie: {{ number_format( $property?->garanteed, thousands_separator: ' ' ) }} $
             </div>
             <hr>
             
@@ -173,7 +212,7 @@
     
     <div class="container">
         <div class="mt-4">
-            <div class="containe textc ">
+            <div class="container textc ">
                 <p class="text-danger">
                     Description
                 </p>

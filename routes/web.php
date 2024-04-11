@@ -50,8 +50,8 @@ Route::resource('follower', FollowersController::class)->except(['show', 'index'
 Route::prefix('admin')->middleware(['admin', 'auth','verified'])->name('admin.')->group(function () use($idRegex, $slugRegex)  {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('owner', [AdminOwnerController::class, 'index'])->name('owner.index');
-    Route::get('/owner/{slug}-{user}',[AdminOwnerController::class, 'show'])->name('owner.show')->where([
+    Route::get('owner', [AdminOwnerController::class, 'index'])->middleware(['verified'])->name('owner.index');
+    Route::get('/owner/{slug}-{user}',[AdminOwnerController::class, 'show'])->middleware(['verified'])->name('owner.show')->where([
         'property' => $idRegex,
         'slug' => $slugRegex,
     ]);

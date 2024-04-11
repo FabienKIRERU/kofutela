@@ -6,6 +6,9 @@
         display: flex;
         flex-direction: row;
     }
+    .message_phone{
+        display: none;
+    }
     
     .message{
             display: flex;
@@ -30,14 +33,27 @@
             max-width: 95%;
             padding: 20px;
         }
+        .message_desk{
+            display: none;
+        }
+        .message_phone{
+            display: block;
+        }
 
     }
 </style>
 <div class="container section">
     <div class="welcome p-5 container text-center alert alert-info bg-transparent bg-opacity-90">
         <div class="container">
-            <h3>Bien venu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de Kinshasa</h3>
-            <h4>Nous connéctons le locataire au Bailleur rapidement et éfficacement</h4>
+            <h3 class="message_desk">
+                Bien venu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de 
+                Kinshasa
+            </h3>
+            <h4 class="message_phone">
+                Bienvenu dans la Plateforme de transaction de Logement. 
+                Publier ou Trouver un Local à Kinshasa
+            </h4>
+            <p>Nous connéctons le locataire au Propriétaire rapidement et éfficacement</p>
             <p>
                 Abonnez-vous pour ne manquer aucun des informations 
                 <a href="{{route('follower.create')}}" class="btn btn-dark border border-2 border-danger">

@@ -3,6 +3,15 @@
 @section('content')
 
 @section('title', 'Tous les biens')
+<style>
+    
+    @media screen and (max-width: 687px){
+        .d_desk{
+            display: none;
+        }
+
+    }
+</style>
     
     <div class="d-flex justify-content-between align-items-center">
         <h1>@yield('title')</h1>
@@ -14,11 +23,11 @@
         <thead>
             <tr>
                 <th>Titre</th>
-                <th>Surface</th>
-                <th>Pièce</th>
-                <th>Prix</th>
-                <th>Quartier</th>
-                <th>Commune</th>
+                <th  class="d_desk">Surface</th>
+                <th  class="d_desk">Pièce</th>
+                <th  class="di_desk">Prix</th>
+                <th  class="d_desk">Quartier</th>
+                <th class="d_desk">Commune</th>
                 <th class="text-end">Action</th>
             </tr>
         </thead>
@@ -27,11 +36,11 @@
             @foreach ($properties as $property)
                 <tr>
                     <td> {{$property->title}} </td>
-                    <td> {{$property->surface}}m² </td>
-                    <td> {{$property->rooms}} </td>
-                    <td> {{number_format($property->price, thousands_separator: ' ') }}$ par mois </td>
-                    <td> {{$property->quarter->name}} </td>
-                    <td>
+                    <td class="d_desk"> {{$property->surface}}m² </td>
+                    <td class="d_desk"> {{$property->rooms}} </td>
+                    <td> {{number_format($property->price, thousands_separator: ' ') }} $ <span class="d_desk"> par mois </span> </td>
+                    <td  class="d_desk"> {{$property->quarter->name}} </td>
+                    <td class="d_desk">
                         @if ($property->quarter->area)
                         {{$property->quarter->area->name}}
                         @else
@@ -42,23 +51,18 @@
                     </td>
                     <td>
                         <div class="d-flex gap-2 w-100 justify-content-end">
-                            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" class="btn btn-light">Voir</a>
-                            <a href="{{route('owner.property.edit', $property)}}" class="btn btn-link">Editer</a>
+                            <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" class="btn btn-light d_desk">
+                                Voir
+                            </a>
+                            <a href="{{route('owner.property.edit', $property)}}" class="btn btn-link">Edit</a>
                             {{-- @if ($property->delete_at) --}}
                             {{-- @can('delete', $property) --}}
                                 <form action="{{route('owner.property.destroy', $property)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger">Supprimer</button>
+                                    <button class="btn btn-link text-danger">Supp</button>
                                 </form>
                                 
-                            {{-- @endcan --}}
-                                
-                            {{-- @else
-                                <p class="text-warning">
-                                     restaurer ?
-                                </p>
-                            @endif --}}
                         </div>
                     </td>
                 </tr>

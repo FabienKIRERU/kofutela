@@ -29,6 +29,7 @@ class PropertyFormRequest extends FormRequest
             'bedrooms' => ['nullable','integer', 'min:0'],
             'floor' => ['nullable','integer', 'min:0'],
             'price' => ['required','integer', 'min:0'],
+            'garanteed' => ['required','integer', 'min:0'],
             'quarter_id' => ['required', 'exists:quarters,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'address' => ['required', 'min:8'],

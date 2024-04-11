@@ -9,12 +9,15 @@
         <p>
             Suivi toutes les actualités de la plateforme.
         </p>
+        <p class="text-danger">
+            une fois vous abonnez, vous ne vous desabonnerez pas tout de suite, sinons nous contacter.
+        </p>
     
         <form class="vstack gap-2" action="{{ route($follower->exists ? 'follower.update' : 'follower.store', $follower) }}" method="POST">
             @csrf
             @method($follower->exists ? 'put' : 'post')
     
-            <div class="container m-3">
+            <div class="container">
                 <div class="container">
                     <div class="col container">
             
