@@ -23,34 +23,6 @@ return new class extends Migration
             $table->integer('bedrooms')->nullable();
             $table->integer('floor')->nullable();
             $table->integer('price');
-            // $table->enum('area', [
-            //     'Bandalungwa',
-            //     'Barumbu',
-            //     'Bumbu',
-            //     'Gombe',
-            //     'Kalamu',
-            //     'Kasa-Vubu',
-            //     'Kimbaseke',
-            //     'Kinshasa',
-            //     'Kintambo',
-            //     'Kisenso',
-            //     'Lemba',
-            //     'Limite',
-            //     'Lingwala',
-            //     'Makala',
-            //     'Maluku',
-            //     'Masina',
-            //     'Matete',
-            //     'Mont-Ngafula',
-            //     'Ndjili',
-            //     'Ngaba',
-            //     'Ngaliema',
-            //     'Ngiri-Ngiri',
-            //     'Nsele',
-            //     'Selembao',
-            //     'Others',
-            // ]);
-            // $table->enum('quarter');
             $table->string('address');
             $table->boolean('sold');
             $table->timestamps();
