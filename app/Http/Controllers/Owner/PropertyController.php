@@ -59,10 +59,8 @@ class PropertyController extends Controller
     public function store(PropertyFormRequest $request)
     {
         $property = new Property();
-        // $property->create([
             $property->title = $request['title'];
             $property->user_id = auth()->user()->id;
-            // dd($request['area_id']),
             $property->quarter_id = $request['quarter_id'];
             $property->category_id = $request['category_id'];
 
@@ -77,9 +75,10 @@ class PropertyController extends Controller
             $property->sold = $request['sold'];
             
         $property->save();
-        // dd($property);
         $property->options()->sync($request->validated('options'));
-        $property->attachFiles($request->validated('pictures'));
+        if($request->validated('pictures')){
+            $property->attachFiles($request->validated('pictures'));
+        }
         $property->notifyFollowers();
         return to_route('owner.property.index')->with('success','Le bien a été bien créé');
     }

@@ -28,7 +28,7 @@ class OwnerFormRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users,email'],
             'phone' => ['required', 'min:10', 'unique:users,phone'],
             'password' => ['required',  new Password(4),],
-            'role' => ['required', 'exists:users,role',],
+            // 'role' => ['nullable', 'exists:users,role',],
         ];
     }
 }

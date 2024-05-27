@@ -19,7 +19,7 @@
                 @include('shared.input', ['label' => 'Email', 'class' => 'col', 'name' => 'email', ])
                 @include('shared.input', ['label' => 'Phone','type' => 'tel', 'class' => 'col', 'name' => 'phone', ])
                 @include('shared.input', ['label' => 'Mot de passe','type' => 'password', 'class' => 'col', 'name' => 'password', ])
-                @include('shared.input', ['label' => null, 'type' => 'hidden', 'class' => 'col', 'name' => 'role', 'value' => 'owner', ])
+                {{-- @include('shared.input', ['label' => null, 'type' => 'hidden', 'class' => 'col', 'name' => 'role', 'value' => 'owner', ]) --}}
     
                 
                 <div class="mt-2">

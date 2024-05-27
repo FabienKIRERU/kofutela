@@ -23,7 +23,7 @@ class OwnerController extends Controller
         $user->phone= $request['phone'];
         $user->password= Hash::make($request['password']);
 
-        // $user->role = 'onwer';
+        $user->role = 'onwer';
         $user->save();
 
         return to_route('login')->with('success', 'vous ête bien connectés');
