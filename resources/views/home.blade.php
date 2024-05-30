@@ -51,9 +51,9 @@
             </h3>
             <h4 class="message_phone">
                 Bienvenu dans la Plateforme de transaction de Logement. 
-                Publier ou Trouver un Local à Kinshasa
+                Publiez ou Trouvez un Local à Kinshasa.
             </h4>
-            <p>Nous connéctons le locataire au Propriétaire rapidement et éfficacement</p>
+            <p>Nous connéctons le locataire au Propriétaire rapidement et éfficacement.</p>
             <p>
                 Abonnez-vous pour ne manquer aucunes des informations 
                 <a href="{{route('follower.create')}}" class="btn btn-dark border border-2 border-danger">
@@ -65,7 +65,7 @@
     </div>
 
     <div class="container bg bg-light p-3 mon_contenu">
-        <h3>Nos 4 derniers Biens mis à jour</h3>
+        <h3>Nos recents Biens mis à jour</h3>
         <div class="property">
             @forelse ($properties as $property)
                 <div class="col">
