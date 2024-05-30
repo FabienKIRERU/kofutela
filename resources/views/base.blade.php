@@ -108,7 +108,6 @@
                                             Editer Profile
                                         </a>
                                     </li>
-                                    {{-- <li><a class="dropdown-item" href="#">Another action</a></li> --}}
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item" href="#">
@@ -132,7 +131,7 @@
                         </li>
                         <li class="nav-item navAbonnement">
                             <a href="{{route('owner')}}" class="" >
-                                s'incrire
+                                S'incrire
                             </a>
                         </li>
                     </ul>
