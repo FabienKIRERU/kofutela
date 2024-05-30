@@ -47,7 +47,7 @@
         <div class="container">
             <h3 class="message_desk">
                 Bienvenu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de 
-                Kinshasa
+                Kinshasa.
             </h3>
             <h4 class="message_phone">
                 Bienvenu dans la Plateforme de transaction de Logement. 
