@@ -46,7 +46,7 @@
     <div class="welcome p-5 container text-center alert alert-info bg-transparent bg-opacity-90">
         <div class="container">
             <h3 class="message_desk">
-                Bien venu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de 
+                Bienvenu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de 
                 Kinshasa
             </h3>
             <h4 class="message_phone">
@@ -55,7 +55,7 @@
             </h4>
             <p>Nous connéctons le locataire au Propriétaire rapidement et éfficacement</p>
             <p>
-                Abonnez-vous pour ne manquer aucun des informations 
+                Abonnez-vous pour ne manquer aucunes des informations 
                 <a href="{{route('follower.create')}}" class="btn btn-dark border border-2 border-danger">
                    Abonnez-vous
                 </a>
@@ -72,7 +72,7 @@
                     @include('property.card')
                 </div>
             @empty
-                <p>Pas des biens disponile pour l'instant</p>
+                <p>Pas des biens disponible pour l'instant</p>
             @endforelse
         </div>
     </div>
