@@ -82,7 +82,7 @@
             Vous êtes Bailleur, commisionnaire ou une Agence Imobilière ? <br>
             Publiez facilement et rapidement votre bien à louer
             <div class="w-100 text-center">
-                <a href="" class="btn btn-dark text-danger">inscrivez-vous</a>
+                <a href="{{route('owner')}}" class="btn btn-dark text-danger">inscrivez-vous</a>
             </div>
         </div>
         <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
@@ -91,7 +91,7 @@
             sans visites inutiles, pertes de temps ni commissions élévées. <br>
             Simplifier votre Recherche et trouvez votre prochain lieu de vie ou de travail en un clin d'oeil !
             <div class="w-100 text-center">
-                <a href="" class="btn btn-dark text-danger">voir tout les biens</a>
+                <a href="{{route('property.index')}}" class="btn btn-dark text-danger">voir tout les biens</a>
             </div>
         </div>
     </div>

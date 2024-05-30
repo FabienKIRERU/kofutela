@@ -59,64 +59,7 @@
 </style>
 </head>
 <body class="bg">
-    {{-- <nav class="navbar navbar-expand-lg bg-ligth navbar-dark d-block w-100" style="position: fixed; top:0; z-index:999999; background-color: white; ">
-        <div class="container-fluid">
-            <a href="/" class="navbar-brand "  >                
-                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="90"  class="d-flex">
-                <span class=" fw-bold text-dark" style="font-size:15px; position: absolute; top:65px; left:15px">
-                    {{ config('app.name')}}
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
-                <span class="navbar-toggeler-icon"></span>
-            </button>
-            @php
-                $route = request()->route()->getName();
-            @endphp
-            <div class="navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item" >
-                        <a href="{{route('property.index')}}" @class(['nav-link', 'active' => str_contains($route, 'property.')])  style="color: black; font-weight:600; font-size:20hpx">
-                            Appartements
-                        </a>
-                    </li>
-                </ul>
-                <div class="ms-auto">
-                    @auth
-                        <ul class="navbar-nav">
-                            @if (auth()->user()->role== 'admin')
-                                <li class="nav-item m-2 ">
-                                    <a href="{{route('admin.dashboard')}}">Dashboard</a>    
-                                </li>                                
-                            @endif
-                            @if (auth()->user()->role== 'owner')
-                                <li class="nav-item m-2 ">
-                                    <a href="{{route('owner.dashboard')}}">Dashboard</a>    
-                                </li>                                
-                            @endif
-                            <li class="nav-item">
-                                <form action="{{route('logout')}}" method="POST">
-                                    @csrf                                    
-                                    <button class="nav-link" style="border: none; background-color:white; color:black">
-                                        Se Déconnecter
-                                    </button>
-                                </form>
-                            </li>
-                        </ul> 
-                    @else
-                    <a href="{{route('login')}}" style="color: black; text-decoration:none; font-weight:600; font-size:15px">
-                        Se Connecter  |
-                    </a>    
-                    <a href="{{route('owner')}}" style="color: black; text-decoration:none; font-weight:600; font-size:15px">
-                        s'incrire
-                    </a>                    
-                    @endauth
-                </div>
-            </div>
-        </div>
-    </nav> --}}
-        
+            
     <nav class="navbar navbar-expand-lg navbar-light " >
         <div class="container">
             <a href="/" class="navbar-brand identity">                
