@@ -152,6 +152,7 @@
             <span class="badge bg-danger">
                 {{$property->category?->titre }}
             </span>
+            <div class="badge bg-dark"> Propriétaire: {{$property->user?->username}}</div>
             <div class="titre_title">
                 <h1>{{$property->title}}</h1>
             </div>

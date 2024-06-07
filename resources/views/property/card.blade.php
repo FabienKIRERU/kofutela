@@ -6,10 +6,10 @@
     <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="230px"  class="d-flex">
     @endif
     <div class="card-body">
-        <div class="badge bg-danger">{{$property->category?->titre}}</div>
+        <div class="badge bg-danger">{{$property->category?->titre}}</div><br>
+        <div class="badge bg-dark"> Propriétaire: {{$property->user?->username}}</div>
         <h5 class="card-title">
             <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" >{{$property->title}}</a>
-
         </h5>
         <p class="card-text">
             {{$property->surface}} m²  

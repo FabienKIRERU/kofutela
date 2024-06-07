@@ -65,14 +65,14 @@
     </div>
 
     <div class="container bg bg-light p-3 mon_contenu">
-        <h3>Nos recents Biens mis à jour</h3>
+        <h3>Les recents Biens mis à jour</h3>
         <div class="property">
             @forelse ($properties as $property)
                 <div class="col">
                     @include('property.card')
                 </div>
             @empty
-                <p>Pas des biens disponible pour l'instant</p>
+                <p class="text-danger">Pas des biens disponible pour l'instant</p>
             @endforelse
         </div>
     </div>
@@ -88,7 +88,7 @@
         <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
             <h4 class="text-danger">Trouvez votre demeure</h4>
             Trouver rapidement la location idéale,
-            sans visites inutiles, pertes de temps ni commissions élévées. <br>
+            sans visites inutiles et pertes de temps, vous avez un endroit idéal où vivre. <br>
             Simplifier votre Recherche et trouvez votre prochain lieu de vie ou de travail en un clin d'oeil !
             <div class="w-100 text-center">
                 <a href="{{route('property.index')}}" class="btn btn-dark text-danger">voir tout les biens</a>

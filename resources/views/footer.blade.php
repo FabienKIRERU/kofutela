@@ -19,12 +19,12 @@
         <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="100px" class="d-flex m-2" style="border-radius: 50%">
         <div>
             <p>
-                Papa Bailleure est une plateforme pour la ville de Kinshasa qui vous facilite à avoir facilement 
-                votre demeure. Elle permet aux Propriétaires de publier leurs locaux: appartement, bureau, 
+                Papa Bailleur est une plateforme de transaction immobilière des ville de la RDC, qui vous facilite à avoir  
+                votre demeure en simplifiant des effort parfois inutiles. Elle permet aux Propriétaires  (bailleur, agence immobilière, commisionnaire) de publier leurs biens: local, appartement, bureau, 
                 logement, des depôt et bien d'autre. <br>
-                Elle permet aux Kinois de trouver facilement un un clic des appartement disponible,
+                Elle permet à la population de trouver facilement en un clic des appartement disponibles,
                 sans perdre en temps, en argent, ... <br>
-                Trouver ou vous voulait vivre, est notre devoire
+                Trouver où vous voulez vivre, est notre devoir.
             </p>
         </div>
 
