@@ -34,11 +34,11 @@ use App\Http\Controllers\Owner\DashboardController;
 
 $idRegex = '[0-9]+';
 $slugRegex = '[0-9a-z\-]+';
-Route::get('/beOwner',[OwnerController::class, 'owner'])->name('owner');
-Route::post('/beOwner',[OwnerController::class, 'beOwner'])->name('beOwner');
-Route::get('/',[HomeController::class, 'index']);
-Route::get('/biens',[\App\Http\Controllers\PropertyController::class, 'index'])->name('property.index');
-Route::get('/biens/{slug}-{property}',[\App\Http\Controllers\PropertyController::class, 'show'])->name('property.show')->where([
+Route::get('/beOwner', [OwnerController::class, 'owner'])->name('owner');
+Route::post('/beOwner', [OwnerController::class, 'beOwner'])->name('beOwner');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/biens', [\App\Http\Controllers\PropertyController::class, 'index'])->name('property.index');
+Route::get('/biens/{slug}-{property}', [\App\Http\Controllers\PropertyController::class, 'show'])->name('property.show')->where([
     'property' => $idRegex,
     'slug' => $slugRegex,
 ]);
@@ -47,18 +47,18 @@ Route::get('/biens/{slug}-{property}',[\App\Http\Controllers\PropertyController:
 Route::resource('follower', FollowersController::class)->except(['show', 'index']);
 
 // les routes pour l'admin
-Route::prefix('admin')->middleware(['admin', 'auth','verified'])->name('admin.')->group(function () use($idRegex, $slugRegex)  {
+Route::prefix('admin')->middleware(['admin', 'auth', 'verified'])->name('admin.')->group(function () use ($idRegex, $slugRegex) {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     Route::get('owner', [AdminOwnerController::class, 'index'])->middleware(['verified'])->name('owner.index');
-    Route::get('/owner/{slug}-{user}',[AdminOwnerController::class, 'show'])->middleware(['verified'])->name('owner.show')->where([
+    Route::get('/owner/{slug}-{user}', [AdminOwnerController::class, 'show'])->middleware(['verified'])->name('owner.show')->where([
         'property' => $idRegex,
         'slug' => $slugRegex,
     ]);
     Route::delete('owner/{slug}-{user}', [AdminOwnerController::class, 'destroy'])->middleware(['verified'])->name('owner.destroy')->where([
         'property' => $idRegex,
         'slug' => $slugRegex,
-    ]);    
+    ]);
     Route::resource('area', AreaController::class)->middleware(['verified'])->except(['show']);
     Route::resource('quarter', QuarterController::class)->except(['show'])->middleware(['verified']);
     Route::resource('property', AdminPropertyController::class)->except(['create'])->middleware(['verified']);
@@ -75,8 +75,8 @@ Route::post('/biens/{property}/contact', [\App\Http\Controllers\PropertyControll
 Route::get('/images/{path}', [ImageController::class, 'show'])->where('path', '.*');
 
 // les routes pour le propriétaire
-Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(function () use($idRegex) {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');//->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(function () use ($idRegex) {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); //->middleware(['auth', 'verified'])->name('dashboard');
     Route::resource('property', PropertyController::class)->middleware(['verified'])->except(['show']);
     Route::resource('option', OptionController::class)->except(['show']);
     Route::delete('picture/{picture}', [PictureController::class, 'destroy'])->name('picture.destroy')->where([
@@ -90,4 +90,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
