@@ -214,9 +214,9 @@
     <div class="container">
         <div class="mt-4">
             <div class="container textc ">
-                <p class="text-danger">
+                <h2 class="text-danger">
                     Description
-                </p>
+                </h2>
                     {!! nl2br($property->description) !!}
             </div>
             <div class="description">
