@@ -13,7 +13,7 @@ class QuarterController extends Controller
 {
     
     public function __construct() {
-        $this->authorizeResource(Quarter::class, 'quarter');
+        $this->authorizeResource(Quarter::class, 'quater');
     }
     /**
      * Display a listing of the resource.
