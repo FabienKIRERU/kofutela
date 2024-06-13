@@ -130,7 +130,7 @@
         </div>
     </nav>    
     
-    <div class="container"  style="z-index: -9999999; margin-top:100px">
+    <div class="container"  style="z-index: -9999999; margin-top:10px">
         @include('shared.flash')
         @yield('content')
     </div>

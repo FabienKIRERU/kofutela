@@ -21,6 +21,8 @@ class DashboardController extends Controller
         }
         // $ownerUsersCount = User::where('role', 'owner')->count();
         return view('admin.dashboard', [
+            'areaCount' => Area::count(),
+            'quarterCount' => Quarter::count(),
             'ownerCount' => User::where('role', 'owner')->count(),
             'PropertyCount' => Property::count(),
             'MoyenPropertyPerOwner' => Property::count() / $ownerCount,

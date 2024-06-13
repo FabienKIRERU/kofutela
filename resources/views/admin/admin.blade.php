@@ -60,32 +60,32 @@
                 <ul class="navbar-nav" style="color: black; ">
                     <li class="nav-item">
                         <a href="{{route('admin.area.index')}}">
-                            Les Communes
+                            Communes
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.quarter.index')}}">
-                            Les quarters
+                            Quarters
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.category.index')}}">
-                            Les catégories
+                            Catégories
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.property.index')}}" >
-                            Les biens
+                            Biens
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.owner.index')}}" >
-                            Les Bailleurs
+                            Bailleurs
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route('admin.follower.index')}}" >
-                            Les Abonnés
+                            Abonnés
                         </a>
                     </li>
                 </ul>
@@ -131,80 +131,9 @@
                 </div>
             </div>
         </div>
-    </nav>    
-    {{-- <nav class="navbar navbar-expand-lg navbar-dark d-block w-100" style="position: fixed; top:0; z-index:999999; background-color: white; box-shadow:0 2px 5px rgb(230, 230, 230)">
-        <div class="container-fluid">
-            <a href="/" class="navbar-brand">                
-                <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="90"  class="d-flex">
-                <span class=" fw-bold text-dark" style="font-size:15px; position: absolute; top:65px; left:15px">{{ config('app.name')}}</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
-                <span class="navbar-toggeler-icon"></span>
-            </button>
-            @php
-                $route = request()->route()->getName();
-            @endphp
-            <div class="navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item" >
-                        <a href="{{route('admin.area.index')}}">
-                            Les Communes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.quarter.index')}}">
-                            Les quarters
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.category.index')}}">
-                            Les catégories
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.property.index')}}" >
-                            Les property
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.owner.index')}}" >
-                            Les Bailleurs
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.follower.index')}}" >
-                            Les Abonnés
-                        </a>
-                    </li>
-                </ul>
-                <div class="ms-auto">
-                    @auth
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="{{route('profile.edit')}}">  
-                                    <span class="nav-link"  style="border: none; background-color:white; color:black">
-                                        {{auth()->user()->username ? auth()->user()->username : 'Profile'}}
-                                    </span>
-                                </a>
-                            </li> -
-                            <li class="nav-item">
-                                <form action="{{route('logout')}}" method="POST">
-                                    @csrf                                    
-                                    <button class="nav-link"  style="border: none; background-color:white; color:black">
-                                        Se Déconnecter
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-
-                    @endauth
-                </div>
-            </div>
-        </div>
-    </nav> --}}
+    </nav>
     {{-- @include('shared.flash') --}}
-    <div class="container"  style="z-index: -9999999; margin-top:100px">
+    <div class="container"  style="z-index: -9999999; margin-top:10px">
         @include('shared.flash')
         @yield('content')
     </div>

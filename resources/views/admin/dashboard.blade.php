@@ -6,41 +6,26 @@
     <h1>@yield('title')</h1>
 
     Bien venu {{auth()->user()->name}} <br> Vous êtes Admin
-
-    {{-- <form class="vstack gap-2" action="{{ route($option->exists ? 'owner.option.update' : 'owner.option.store', $option) }}" method="POST">
-        @csrf
-        @method($option->exists ? 'put' : 'post')
-
-        <div class="row">
-
-            @include('shared.input', ['label' => 'Nom', 'class' => 'col', 'name' => 'name', 'value' => $option->name])
-        </div>
-
-
-        <div>
-            <button class="btn btn-primary">
-                @if ($option->exists)
-                    Modifier
-                @else
-                    Créer
-                @endif
-            </button>
-        </div>
-    </form> --}}
     <div class="container d-flex">
         <div class="container">
             
+            <div class="container alert alert-danger">
+                Nombre de commune : <span class="fw-bold" >{{$ownerCount}}</span>
+            </div>
+            <div class="container alert alert-success">
+                Nombre de quartier : <span class="fw-bold" >{{$ownerCount}}</span>
+            </div>
             <div class="container alert alert-secondary">
-                Nombre de bailleurs : <span class="" >{{$ownerCount}}</span>
+                Nombre de bailleurs : <span class="fw-bold" >{{$ownerCount}}</span>
             </div>
             <div class="container alert alert-warning">
-                Nombre de biens : <span class="" >{{$PropertyCount}}</span>
+                Nombre de biens : <span class="fw-bold" >{{$PropertyCount}}</span>
             </div>
             <div class="container alert alert-info">
-                Moyenne des bien par Bailleur : <span class="" >{{$MoyenPropertyPerOwner}}</span>
+                Moyenne des bien par Bailleur : <span class="fw-bold" >{{$MoyenPropertyPerOwner}}</span>
             </div>
             <div class="container alert alert-danger">
-                Abonné : <span class="" >{{$followersRanking}}</span>
+                Abonné : <span class="fw-bold" >{{$followersRanking}}</span>
             </div>
         </div>
         <div class="container">
