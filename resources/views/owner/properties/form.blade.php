@@ -129,7 +129,7 @@
                         <div id="picture{{$picture->id}}" class="position-relative">
                             <img src="{{ $picture->getImageUrl() }}" alt="" class="w-100 d-block">
                             <button type="button" hx-delete="{{route('owner.picture.destroy', $picture)}}"
-                            class="btn btn-danger position-absolute bottom-0 w-100 start-0"
+                            class="btn btn-danger btn-sm position-absolute m-2 bottom-0 w-50 end-0"
                             hx-target="#picture{{$picture->id}}" hx-swap="delete">
                                 <span class="htmlx-indicator spinner-border spinner-border-sm" role="status" aria-hidden="true">
                                 </span> Supprimer
@@ -141,7 +141,13 @@
                     
                 {{-- @endif --}}
             </div>
-    
+        <div class="row">
+            <div>
+            </div>
+            
+            <div>
+            </div>
+        </div>   
         </form>
     </div>
 
