@@ -139,7 +139,7 @@ class PropertyController extends Controller
     {
         Picture::destroy($property->pictures()->pluck('id'));
         // $property->delete();
-        return to_route('owner.property.index')->with('success','Le bien a été supprimé');
+        return redirect(route('owner.property.index'))->with('success','Le bien a été supprimé');
     }
 }
 
