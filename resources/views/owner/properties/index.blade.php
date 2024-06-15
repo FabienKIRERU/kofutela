@@ -57,11 +57,14 @@
                             <a href="{{route('owner.property.edit', $property)}}" class="btn btn-link">Edit</a>
                             {{-- @if ($property->delete_at) --}}
                             {{-- @can('delete', $property) --}}
-                            
-                                    <a href("{{route('deleteproperty', ["id" => $property->id])}}") class="btn btn-link text-danger">Supp</button>
+                            <form action="{route("property.destroy", ["id" => $property->id] method="POST">
+                               @csrf
+                                @method("delete")
                                 
+                                    <button class="btn btn-link text-danger">Supp</button>
                                 
-                        </div>
+                              <form>  
+                              </di>
                     </td>
                 </tr>
             @endforeach
