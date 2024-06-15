@@ -79,7 +79,9 @@ class PropertyController extends Controller
         $property->save();
         // dd($property);
         $property->options()->sync($request->validated('options'));
-        $property->attachFiles($request->validated('pictures'));
+        if($request->validated('pictures')){
+            $property->attachFiles($request->validated('pictures'));
+        }
         $property->notifyFollowers();
         return to_route('owner.property.index')->with('success','Le bien a été bien créé');
     }
