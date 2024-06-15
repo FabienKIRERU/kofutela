@@ -138,7 +138,7 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         Property::destroy($property->pictures()->pluck('id'));
-        // $property->delete();
+         $property->delete();
         return redirect(route('owner.property.index'))->with('success','Le bien a été supprimé');
     }
 }
