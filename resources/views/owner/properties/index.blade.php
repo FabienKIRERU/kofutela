@@ -57,7 +57,7 @@
                             <a href="{{route('owner.property.edit', $property)}}" class="btn btn-link">Edit</a>
                             {{-- @if ($property->delete_at) --}}
                             {{-- @can('delete', $property) --}}
-                            <form action="{{route("property.destroy", ["id" => $property->id])}}" method="POST">
+                            <form action="{{route("owrner.property.destroy", ["id" => $property->id])}}" method="POST">
                                @csrf
                                 @method("delete")
                                 
