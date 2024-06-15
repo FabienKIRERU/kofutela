@@ -77,6 +77,7 @@ Route::get('/images/{path}', [ImageController::class, 'show'])->where('path', '.
 // les routes pour le propriétaire
 Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(function () use ($idRegex) {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); //->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('"{{route('destroy/property/', {id}",[PropertyController::class,"destroy")->name("destroy.property);
     Route::resource('property', PropertyController::class);
     Route::resource('option', OptionController::class)->except(['show']);
     Route::delete('picture/{picture}', [PictureController::class, 'destroy'])->name('picture.destroy')->where([
