@@ -128,13 +128,13 @@
                         {{-- <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex"> --}}
                         @foreach ($property->pictures as $picture)
                         <div id="picture{{$picture->id}}" class="position-relative">
-                            <img src="{{ $picture->getImageUrl(350, 220) }}" alt="" class="w-100 d-block">
-                            <button type="button" hx-delete="{{route('owner.picture.destroy', $picture)}}"
-                            class="btn btn-danger btn-sm position-absolute m-2 bottom-0 w-50 end-0"
-                            hx-target="#picture{{$picture->id}}" hx-swap="delete">
-                                <span class="htmlx-indicator spinner-border spinner-border-sm" role="status" aria-hidden="true">
-                                </span> Supprimer
-                            </button>
+                            <img src="{{ $picture->getImageUrl() }}" alt="" class="w-100 d-block">
+                    <button type="button" hx-delete="{{route('owner.picture.destroy', $picture)}}"
+                     class="btn btn-danger position-absolute bottom-0 w-100 start-0"
+                     hx-target="#picture{{$picture->id}}" hx-swap="delete">
+                        <span class="htmlx-indicator spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                        </span> Supprimer
+                    </button>
                         </div>
                         @endforeach
                             @include('shared.upload', ['label' => 'Image', 'name' => 'pictures', 'multiple' => true])
