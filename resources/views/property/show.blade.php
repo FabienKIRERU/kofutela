@@ -113,6 +113,7 @@
                                 <div class="carousel-item {{ $k == 0 ? 'active' : '' }} ">
                                     <img src="{{$picture->getImageUrl(800, 530)}}" alt="">
                                 </div>
+                            
                                 @empty
                                 <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex">
                             @endforelse
