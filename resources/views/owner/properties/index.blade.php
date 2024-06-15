@@ -58,7 +58,7 @@
                             {{-- @if ($property->delete_at) --}}
                             {{-- @can('delete', $property) --}}
                             
-                                    <a href("{{route('owner.property.destroy', ["id" => $property->id])}}") class="btn btn-link text-danger">Supp</button>
+                                    <a href("{{route('destroy.property', ["id" => $property->id])}}") class="btn btn-link text-danger">Supp</button>
                                 
                                 
                         </div>
