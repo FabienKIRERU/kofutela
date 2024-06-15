@@ -128,7 +128,7 @@
                         {{-- <img src="{{ asset('logo/papabailleur.png') }}" alt="" width="530px"  class="d-flex"> --}}
                         @foreach ($property->pictures as $picture)
                         <div id="picture{{$picture->id}}" class="position-relative">
-                            <img src="{{ $picture->getImageUrl() }}" alt="" class="w-100 d-block">
+                            <img src="{{ $picture->getImageUrl(340, 220) }}" alt="" class="w-100 d-block">
                     <button type="button" hx-delete="{{route('owner.picture.destroy', $picture)}}"
                      class="btn btn-danger position-absolute bottom-0 w-100 start-0"
                      hx-target="#picture{{$picture->id}}" hx-swap="delete">
