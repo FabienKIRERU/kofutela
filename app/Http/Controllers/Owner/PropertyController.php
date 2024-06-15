@@ -135,9 +135,9 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Property $property)
+    public function destroy(int $id)
     {
-        Property::destroy($property->pictures()->pluck('id'));
+        Property::destroy($id);
         // $property->delete();
         return redirect(route('owner.property.index'))->with('success','Le bien a été supprimé');
     }
