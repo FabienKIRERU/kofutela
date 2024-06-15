@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Owner\OptionController;
 use App\Http\Controllers\Admin\QuarterController;
 use App\Http\Controllers\Owner\PictureController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\lolCategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FollowersController as AdminFollowersController;
 use App\Http\Controllers\Admin\OwnerController as AdminOwnerController;
@@ -77,7 +77,7 @@ Route::get('/images/{path}', [ImageController::class, 'show'])->where('path', '.
 // les routes pour le propriétaire
 Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(function () use ($idRegex) {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); //->middleware(['auth', 'verified'])->name('dashboard');
-    Route::get("deleteproperty/{id}",[PropertyController::class,"destroy"])->name("destroy.property");
+
     Route::resource('property', PropertyController::class);
     Route::resource('option', OptionController::class)->except(['show']);
     Route::delete('picture/{picture}', [PictureController::class, 'destroy'])->name('picture.destroy')->where([
