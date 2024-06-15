@@ -135,7 +135,7 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id)
+    public function destroy(Request $id)
     {
         Property::destroy($id);
         // $property->delete();
