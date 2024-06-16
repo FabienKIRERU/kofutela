@@ -199,9 +199,9 @@
                         </div>
                         <div class="">
                             <span class="badge bg-danger">Joignez-nous sur :</span> 
-                            <a href="{{$property?->user->telephone}}" class=" "><i class="fa-solid fa-phone" style="font-size: 30px; color: rgb(66, 66, 66)"></i></a>
-                            <a href="whatsapp://send?Hello, Intéressé par le bien {{$property->title}}?&phone={{$property?->user->telephone}}" class="m-2 "><i class="fa-brands fa-square-whatsapp" style="font-size: 30px; color: rgb(7, 168, 7)" ></i></a>
-                            <a href="sms:{{$property?->user->telephone}}" class=""><i class="fa-solid fa-comment-sms" style="font-size: 30px"></i></a>
+                            <a href="{{$property?->user->phone}}" class=" "><i class="fa-solid fa-phone" style="font-size: 30px; color: rgb(66, 66, 66)"></i></a>
+                            <a href="whatsapp://send?Hello, Intéressé par le bien {{$property->title}}?&phone={{$property?->user->phone}}" class="m-2 "><i class="fa-brands fa-square-whatsapp" style="font-size: 30px; color: rgb(7, 168, 7)" ></i></a>
+                            <a href="sms:{{$property?->user->phone}}" class=""><i class="fa-solid fa-comment-sms" style="font-size: 30px"></i></a>
                         </div>
                     </form>
                     
