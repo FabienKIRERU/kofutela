@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Owner\OptionController;
 use App\Http\Controllers\Admin\QuarterController;
 use App\Http\Controllers\Owner\PictureController;
-use App\Http\Controllers\Admin\lolCategoryController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FollowersController as AdminFollowersController;
 use App\Http\Controllers\Admin\OwnerController as AdminOwnerController;
@@ -80,7 +80,7 @@ Route::prefix('owner')->middleware(['owner', 'auth'])->name('owner.')->group(fun
 
     Route::resource('property', PropertyController::class);
     Route::resource('option', OptionController::class)->except(['show']);
-    Route::delete('picture/{picture}', [PictureController::class, 'destroy'])->name('picture.destroy')->where([
+    Route::delete('picture/{picture}', [\App\Http\Controllers\owner\PictureController::class, 'destroy'])->name('picture.destroy')->where([
         'picture' => $idRegex,
     ]);
 });
