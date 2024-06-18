@@ -43,10 +43,11 @@
     <div class="container p-2" style="background-color: white">
 
         <h1>@yield('title')</h1>
-        
-        <p class="text-danger container text-center alert alert-danger">
-            Assurez-vous d'avoir créé les options pour vos biens avant de créer les biens 
-        </p>
+        @if ($options)
+            <p class="text-danger container text-center alert alert-danger">
+                Assurez-vous d'avoir créé les options pour vos biens avant de créer les biens 
+            </p>            
+        @endif
     
         <form class="vstack gap-2" action="{{ route($property->exists ? 'owner.property.update' : 'owner.property.store', $property) }}" method="POST" enctype="multipart/form-data">
             @csrf
