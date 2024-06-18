@@ -43,7 +43,7 @@
     <div class="container p-2" style="background-color: white">
 
         <h1>@yield('title')</h1>
-        @if ($options)
+        @if (!$options)
             <p class="text-danger container text-center alert alert-danger">
                 Assurez-vous d'avoir créé les options pour vos biens avant de créer les biens 
             </p>            
