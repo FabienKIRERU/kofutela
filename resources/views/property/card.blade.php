@@ -4,7 +4,7 @@
     }
     @media screen and (max-width: 687px){
         .card{
-            height: 70vh;
+            height: 71vh;
         }
     }
 </style>
@@ -22,14 +22,14 @@
             <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" >{{$property->title}}</a>
         </h5>
         <p class="text-secondary" >
-            surface: {{$property->surface}} m²  
+            <i class="fa-regular fa-square-full" style="font-size: 15px; color: rgba(255, 0, 0, 0.596)"></i> {{$property->surface}} m²  
         </p>
         <p class="text-secondary fw-bold" >
             Garantie: {{ number_format($property?->garanteed, thousands_separator: ' ') }} $ <br>
             Prix mensuel: {{ number_format($property->price, thousands_separator: ' ') }} $
         </p>
         <p class="card-text text-secondary">
-            <i class="fa-solid fa-home" style="font-size: 15px; color: rgba(66, 66, 66, 0.418)"></i> {{$property->quarter->area->name}}
+            <i class="fa-solid fa-location-dot"  style="font-size: 20px; color: rgba(255, 0, 0, 0.596)"> </i> {{$property->quarter->area->name}}
             ,{{$property->quarter->name}}
             ,{{$property->address}} -{{$property->city}}
         </p>
