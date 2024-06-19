@@ -99,7 +99,7 @@
         </div>
     </div>
     <div class="bg bg-light container message">
-        <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
+        <div class="mt-2 container p-4"  style="background-color: white; margin-top:10px">
             <h4 class="text-danger">Devenez Propriétaire</h4>
             Vous êtes Bailleur, commisionnaire ou une Agence Imobilière ? <br>
             Publiez facilement et rapidement votre bien à louer
@@ -107,7 +107,7 @@
                 <a href="{{route('owner')}}" class="btn btn-dark text-danger">inscrivez-vous</a>
             </div>
         </div>
-        <div class="m-2 container p-4"  style="background-color: white; margin-top:10px">
+        <div class="mt-2 container p-4"  style="background-color: white; margin-top:10px">
             <h4 class="text-danger">Trouvez votre demeure</h4>
             Trouver rapidement la location idéale,
             sans visites inutiles et pertes de temps, vous avez un endroit idéal où vivre. <br>
