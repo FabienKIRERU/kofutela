@@ -58,9 +58,9 @@
         }
 </style>
 </head>
-<body class="bg">
+<body class="bg bg-light">
             
-    <nav class="navbar navbar-expand-lg navbar-light " >
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: white">
         <div class="container">
             <a href="/" class="navbar-brand identity">                
                 <img src="{{ asset('logo/papabailleur.png') }}" alt="logo" width="90"  class="d-flex">
