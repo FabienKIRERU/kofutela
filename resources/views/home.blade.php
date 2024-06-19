@@ -2,10 +2,24 @@
 
 @section('content')
 <style>
-    .property{
+    .section .welcome{
+        /* max-width: 100%; */
+        background-color: #fff;
+    }
+    .liste_property{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .properties{
+        width: 30%;
+        float: left;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+    /* .property{
         display: flex;
         flex-direction: row;
-    }
+    } */
     .message_phone{
         display: none;
     }
@@ -20,19 +34,27 @@
         }
         .section .welcome{
             max-width: 100%;
+            background-color: #fff;
         }
         .section .mon_contenu{
             max-width: 100%;
         }
-        .property{
-            display: flex;
-            flex-direction: column;
+        .liste_property{            
+            display: block;
+            /* display: flex;
+            flex-direction: column; */
+        }
+        .properties{
+            width: 100%;
+            margin-top: 10px;
+            /* float: left; */
         }
         .message{
             display: block;
             max-width: 95%;
-            padding: 20px;
+            /* padding: 20px; */
         }
+
         .message_desk{
             display: none;
         }
@@ -43,7 +65,7 @@
     }
 </style>
 <div class="container section">
-    <div class="welcome p-5 container text-center alert alert-info bg-transparent bg-opacity-90">
+    <div class="welcome container text-center alert alert-info ">
         <div class="container">
             <h3 class="message_desk">
                 Bienvenu sur la plateforme de deal des Maisons, bureaux, locaux, dépôts et autres de la ville de 
@@ -66,9 +88,9 @@
 
     <div class="container bg bg-light p-3 mon_contenu">
         <h3>Les recents Biens mis à jour</h3>
-        <div class="property">
+        <div class="liste_property">
             @forelse ($properties as $property)
-                <div class="col">
+                <div class="properties">
                     @include('property.card')
                 </div>
             @empty
