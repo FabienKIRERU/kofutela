@@ -23,8 +23,8 @@
             <a href="{{route('property.show', ['slug'=> $property->getSlug(), 'property' => $property])}}" >{{$property->title}}</a>
         </h5>
         <p class="text-secondary" >
-            <i class="fa-regular fa-square-full" style="font-size: 15px; color: rgba(255, 0, 0, 0.596)"></i> {{$property->surface}} m²  | 
-            <small>Garantie:</small> {{ number_format($property?->garanteed, thousands_separator: ' ') }} $ |
+            <i class="fa-regular fa-square-full" style="font-size: 15px; color: rgba(255, 0, 0, 0.596)"></i> {{$property->surface}} m²  |   
+            <small>Garantie:</small> {{ number_format($property?->garanteed, thousands_separator: ' ') }} $ |  
             <small>Prix mensuel:</small> {{ number_format($property->price, thousands_separator: ' ') }} $
         </p>
         <p class="card-text text-secondary">
