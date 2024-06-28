@@ -24,8 +24,8 @@
         </h5>
         <p class="text-secondary" >
             <i class="fa-regular fa-square-full" style="font-size: 15px; color: rgba(255, 0, 0, 0.596)"></i> {{$property->surface}} m²  |   
-            <small>Garantie:</small> {{ number_format($property?->garanteed, thousands_separator: ' ') }} $ |  
-            <small>Prix mensuel:</small> {{ number_format($property->price, thousands_separator: ' ') }} $
+            <small style="size:5px">Garantie:</small> {{ number_format($property?->garanteed, thousands_separator: ' ') }} $ |  
+            <small style="size:5px">Prix mensuel:</small> {{ number_format($property->price, thousands_separator: ' ') }} $ par mois
         </p>
         <p class="card-text text-secondary">
             <i class="fa-solid fa-location-dot"  style="font-size: 20px; color: rgba(255, 0, 0, 0.596)"> </i> {{$property->quarter->area->name}}
