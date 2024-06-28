@@ -11,10 +11,10 @@
 </style>
 <div class="card " >
     @if ($property->getPicture())
-        <img src="{{ $property->getPicture()->getImageUrl(360, 230) }}" alt="" >
+        <img src="{{ $property->getPicture()->getImageUrl(360, 230) }}" alt="" style="border-radius:20px">
     @else
         <small class="text-danger"> ce bien n'a pas de photo </small>
-        <img src="{{ asset('logo/papabailleur.png') }}" alt=""  >
+        <img src="{{ asset('logo/papabailleur.png') }}" alt=""  style="border-radius:20px">
     @endif
     <div class="card-body text-secondary">
         <div class="badge bg-danger">{{$property->category?->titre}}</div><br>
