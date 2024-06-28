@@ -1,6 +1,7 @@
 <style>
     .card{
         height: 80vh;
+        border-radius:25px
     }
     @media screen and (max-width: 687px){
         .card{
