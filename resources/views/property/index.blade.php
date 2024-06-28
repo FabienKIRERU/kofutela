@@ -62,7 +62,7 @@
     
 <div class="container">
     <h1>Tous Nos Biens</h1>
-    <div class="liste_property ">
+    <div class="liste_property bg bg-light">
         @forelse ($properties as $property)
             <div class="properties">
                 @include('property.card')
