@@ -90,7 +90,7 @@
         <h3>Les recents Biens mis à jour</h3>
         <div class="liste_property bg bg-light">
             @forelse ($properties as $property)
-                <div class="properties">
+                <div class="properties bg bg-light">
                     @include('property.card')
                 </div>
             @empty
